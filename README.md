@@ -2,6 +2,8 @@
 
 > Gerador de currículo em arquivo único (HTML/CSS/JS) com layout A4 otimizado para impressão (PDF) e editor de imagem integrado com recorte e zoom.
 
+[Para acessar a Live Demo, clique aqui.](https://heliocarrara.github.io/static-cv-generator/)
+
 ## 🚀 Visão Geral
 
 Este projeto é uma ferramenta leve e sem dependências para gerar um currículo profissional. Consiste em um único arquivo HTML contendo todo o CSS e JavaScript necessários. Foi projetado para ser facilmente editável via ferramentas de IA e formatado perfeitamente para impressão em A4.
