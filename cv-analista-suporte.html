@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currículo Analista de Suporte Técnico - Helio Carrara</title>
+    <meta name="description" content="Currículo profissional de Helio Carrara adaptado para a vaga de Analista de Suporte Técnico na Futturis.">
+    <style>
+        /* --- FONTES E CORES --- */
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;600;700&display=swap');
+
+        :root {
+            --sidebar-bg: #f8fafc;
+            --accent-color: #7c3aed; /* Roxo vibrante Futturis */
+            --text-dark: #0f172a;
+            --text-light: #475569;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+
+        body {
+            background-color: #475569;
+            display: flex;
+            justify-content: center;
+            font-family: 'Open Sans', sans-serif;
+            padding: 20px;
+        }
+
+        /* --- CONFIGURAÇÃO DA PÁGINA A4 --- */
+        .page {
+            width: 210mm;
+            height: 297mm;
+            background: white;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            display: grid;
+            grid-template-columns: 32% 68%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* --- COLUNA ESQUERDA (SIDEBAR) --- */
+        aside {
+            background-color: var(--sidebar-bg);
+            padding: 40px 20px 25px 20px;
+            color: var(--text-dark);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            border-right: 1px solid #e2e8f0;
+        }
+
+        .sidebar-top-accent {
+            background-color: var(--accent-color);
+            height: 15px;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+        }
+
+        /* Títulos da Sidebar */
+        h3.section-title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            text-transform: uppercase;
+            font-size: 11pt;
+            margin-bottom: 12px;
+            color: var(--text-dark);
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 5px;
+            display: inline-block;
+        }
+
+        /* Textos da Sidebar */
+        .contact-info p,
+        .education-item,
+        .skills-list li,
+        .cert-list li {
+            font-size: 9pt;
+            line-height: 1.4;
+            margin-bottom: 8px;
+            color: var(--text-dark);
+        }
+
+        .education-item {
+            margin-bottom: 15px;
+        }
+
+        .education-year {
+            font-weight: 700;
+            display: block;
+            font-size: 8.5pt;
+            color: var(--text-light);
+        }
+
+        .education-degree {
+            font-weight: 700;
+            display: block;
+            margin-bottom: 2px;
+        }
+
+        .skills-list,
+        .cert-list {
+            list-style: none;
+        }
+
+        .skills-list li,
+        .cert-list li {
+            padding-left: 1em;
+            position: relative;
+            margin-bottom: 6px;
+        }
+
+        .skills-list li::before,
+        .cert-list li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+            color: var(--accent-color);
+        }
+
+        /* --- COLUNA DIREITA (PRINCIPAL) --- */
+        main {
+            padding: 30px 35px 20px 35px;
+            background-color: white;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 22pt;
+            text-transform: uppercase;
+            color: #0f172a;
+            margin-bottom: 5px;
+            line-height: 1.1;
+        }
+
+        .role-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 11pt;
+            font-weight: 600;
+            color: var(--text-light);
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+
+        .name-underline {
+            width: 60px;
+            height: 5px;
+            background-color: var(--accent-color);
+        }
+
+        h2.main-section-title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 13pt;
+            text-transform: uppercase;
+            color: #0f172a;
+            margin-top: 15px;
+            margin-bottom: 8px;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 3px;
+        }
+
+        p.profile-text {
+            font-size: 9.5pt;
+            line-height: 1.5;
+            color: var(--text-dark);
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        .job-item {
+            margin-bottom: 14px;
+        }
+
+        .job-date {
+            font-size: 9pt;
+            color: var(--text-light);
+            margin-bottom: 2px;
+            font-weight: 600;
+        }
+
+        .job-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 10.5pt;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 5px;
+        }
+
+        .job-details {
+            list-style: none;
+        }
+
+        .job-details li {
+            font-size: 9.5pt;
+            line-height: 1.4;
+            color: var(--text-dark);
+            margin-bottom: 4px;
+            padding-left: 12px;
+            position: relative;
+            text-align: justify;
+        }
+
+        .job-details li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: var(--accent-color);
+        }
+
+        /* --- PRINT --- */
+        @media print {
+            @page {
+                size: A4;
+                margin: 0mm;
+            }
+
+            body {
+                background: none;
+                margin: 0;
+                padding: 0;
+            }
+
+            .page {
+                width: 100%;
+                height: 297mm;
+                box-shadow: none;
+                margin: 0;
+                page-break-after: avoid;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page">
+        <aside>
+            <div class="sidebar-top-accent"></div>
+
+            <h3 class="section-title" id="contato-title">Contato</h3>
+            <div class="contact-info">
+                <p>Cuiabá, Mato Grosso (Disponível Remoto)</p>
+                <p>Jardim Itália</p>
+                <p><strong>Celular:</strong> (65) 98444-4601</p>
+                <p style="font-size: 8.5pt; word-break: break-all;"><a href="mailto:heliocarrara@gmail.com"
+                        style="color: inherit; text-decoration: none;">heliocarrara@gmail.com</a></p>
+                <p style="font-size: 8.5pt;"><a href="https://linkedin.com/in/heliocarrara" target="_blank"
+                        style="color: inherit; text-decoration: none;">linkedin.com/in/heliocarrara</a></p>
+                <p style="font-size: 8.5pt;"><a href="https://github.com/heliocarrara" target="_blank"
+                        style="color: inherit; text-decoration: none;">github.com/heliocarrara</a></p>
+            </div>
+            <br>
+
+            <h3 class="section-title" id="formacao-title">Formação</h3>
+
+            <div class="education-item">
+                <span class="education-year">2024 - 2026 (Em andamento)</span>
+                <span class="education-degree">Mestrado em Ciência de Dados</span>
+                UFMT - Universidade Federal de Mato Grosso
+            </div>
+
+            <div class="education-item">
+                <span class="education-year">2018 - 2024</span>
+                <span class="education-degree">Engenharia de Computação</span>
+                UFMT - Universidade Federal de Mato Grosso
+            </div>
+
+            <br>
+
+            <h3 class="section-title" id="habilidades-title">Habilidades</h3>
+            <ul class="skills-list">
+                <li>Suporte por Ticket, Chat e Fone</li>
+                <li>Diagnóstico & Resolução de Falhas</li>
+                <li>Roteamento Mikrotik</li>
+                <li>Tecnologia SIP & Voz (VoIP)</li>
+                <li>Controle de Acesso</li>
+                <li>Sistemas Windows & Linux</li>
+                <li>Configuração de Redes TCP/IP</li>
+                <li>Criação de Base de Conhecimento</li>
+                <li>Foco em Sucesso do Cliente</li>
+                <li>Banco de Dados & SQL</li>
+                <li>Trabalho em Equipe & Remoto</li>
+                <li>Inglês Avançado</li>
+            </ul>
+
+            <br>
+
+            <h3 class="section-title" id="certificacoes-sidebar-title">Certificações</h3>
+            <ul class="cert-list">
+                <li contenteditable="true">Gestão Ágil com Scrum (2024)</li>
+                <li contenteditable="true">Pilares e Fases do Design Thinking (2022)</li>
+                <li contenteditable="true">Mindset Digital e Transformação (2022)</li>
+                <li contenteditable="true">Inglês Nível Avançado (UFMT)</li>
+            </ul>
+        </aside>
+
+        <main>
+            <header>
+                <h1 contenteditable="true" id="nome-header">Helio Carrara<br>Belido Júnior</h1>
+                <div class="role-title" contenteditable="true" id="cargo-header">Analista de Suporte Técnico | Engenheiro de Computação</div>
+                <div class="name-underline"></div>
+            </header>
+
+            <section>
+                <h2 class="main-section-title" id="resumo-title">Resumo Profissional</h2>
+                <p class="profile-text" contenteditable="true" id="resumo-content">
+                    Engenheiro de Computação (UFMT) e Mestrando em Ciência de Dados, com sólida experiência no suporte técnico a clientes (níveis 1 e 2), administração de redes e sistemas operacionais (Windows/Linux). Vivência na gestão e solução de chamados complexos por meio de chat, e-mail, telefone e sistemas de tickets. Familiaridade técnica com arquitetura de redes, Mikrotik, tecnologia SIP (telefonia/VoIP) e controle de acesso físico/lógico. Perfil comunicativo, focado na empatia e satisfação do usuário final, proativo e com facilidade para colaborar em equipes ágeis e ambientes de trabalho remotos.
+                </p>
+            </section>
+
+            <section>
+                <h2 class="main-section-title" id="historico-title">Histórico Profissional</h2>
+
+                <div class="job-item">
+                    <div class="job-date" contenteditable="true">Junho 2025 - Fevereiro 2026</div>
+                    <div class="job-title" contenteditable="true">Estágio Docência / Suporte em Laboratório, <i>UFMT</i></div>
+                    <ul class="job-details">
+                        <li contenteditable="true">Prestei suporte técnico direto a usuários, diagnosticando falhas operacionais e de software com foco no atendimento resolutivo e empatia.</li>
+                        <li contenteditable="true">Registrei e documentei problemas técnicos recorrentes no sistema de tickets, gerando dados que auxiliaram na alimentação da base de conhecimento da infraestrutura do laboratório.</li>
+                        <li contenteditable="true">Auxiliei na instalação, monitoramento e configuração de sistemas operacionais e ferramentas de software em geral, garantindo alta disponibilidade dos recursos.</li>
+                    </ul>
+                </div>
+
+                <div class="job-item">
+                    <div class="job-date" contenteditable="true">Agosto 2019 - Agosto 2024</div>
+                    <div class="job-title" contenteditable="true">Full Stack Developer & Suporte de TI, <i>UFMT</i></div>
+                    <ul class="job-details">
+                        <li contenteditable="true">Realizei manutenção e suporte de hardware, periféricos corporativos e configurações de redes TCP/IP em laboratório universitário integrado.</li>
+                        <li contenteditable="true">Atuei na administração de redes, realizando testes de roteamento com equipamentos Mikrotik, controle de acesso a computadores e monitoramento de conexões de usuários.</li>
+                        <li contenteditable="true">Utilizei plataformas de tickets para catalogar, priorizar e responder a incidentes e dúvidas dos usuários, mantendo foco na SLA e na melhoria dos fluxos de atendimento.</li>
+                    </ul>
+                </div>
+
+                <div class="job-item">
+                    <div class="job-date" contenteditable="true">Julho 2023 - Julho 2024</div>
+                    <div class="job-title" contenteditable="true">Coordenador de Projeto (SIEx) / Atendimento, <i>UFMT</i></div>
+                    <ul class="job-details">
+                        <li contenteditable="true">Atuei no atendimento de suporte de segundo nível a usuários de sistemas corporativos, realizando triagem e escalonamento de erros técnicos para equipes de desenvolvimento e engenharia.</li>
+                        <li contenteditable="true">Colaborei com times internos na melhoria de regras de negócio de software, além de identificar incidentes recorrentes e propor soluções proativas para otimização dos produtos.</li>
+                    </ul>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        document.querySelectorAll('[contenteditable="true"]').forEach(el => {
+            el.addEventListener('focus', function () { this.style.outline = '2px solid var(--accent-color)'; });
+            el.addEventListener('blur', function () { this.style.outline = 'none'; });
+        });
+    </script>
+</body>
+
+</html>
