@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currículo Desenvolvedor - Helio Carrara</title>
+    <meta name="description" content="Currículo profissional de Helio Carrara adaptado para a vaga de Desenvolvedor (.NET / Frontend).">
+    <style>
+        /* --- FONTES E CORES --- */
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;600;700&display=swap');
+
+        :root {
+            --sidebar-bg: #f8fafc;
+            --accent-color: #0d9488; /* Verde Teal Moderno */
+            --text-dark: #0f172a;
+            --text-light: #475569;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+
+        body {
+            background-color: #475569;
+            display: flex;
+            justify-content: center;
+            font-family: 'Open Sans', sans-serif;
+            padding: 20px;
+        }
+
+        /* --- CONFIGURAÇÃO DA PÁGINA A4 --- */
+        .page {
+            width: 210mm;
+            height: 297mm;
+            background: white;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            display: grid;
+            grid-template-columns: 32% 68%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* --- COLUNA ESQUERDA (SIDEBAR) --- */
+        aside {
+            background-color: var(--sidebar-bg);
+            padding: 40px 20px 25px 20px;
+            color: var(--text-dark);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            border-right: 1px solid #e2e8f0;
+        }
+
+        .sidebar-top-accent {
+            background-color: var(--accent-color);
+            height: 15px;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+        }
+
+        /* Títulos da Sidebar */
+        h3.section-title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            text-transform: uppercase;
+            font-size: 11pt;
+            margin-bottom: 12px;
+            color: var(--text-dark);
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 5px;
+            display: inline-block;
+        }
+
+        /* Textos da Sidebar */
+        .contact-info p,
+        .education-item,
+        .skills-list li,
+        .cert-list li {
+            font-size: 9pt;
+            line-height: 1.4;
+            margin-bottom: 8px;
+            color: var(--text-dark);
+        }
+
+        .education-item {
+            margin-bottom: 15px;
+        }
+
+        .education-year {
+            font-weight: 700;
+            display: block;
+            font-size: 8.5pt;
+            color: var(--text-light);
+        }
+
+        .education-degree {
+            font-weight: 700;
+            display: block;
+            margin-bottom: 2px;
+        }
+
+        .skills-list,
+        .cert-list {
+            list-style: none;
+        }
+
+        .skills-list li,
+        .cert-list li {
+            padding-left: 1em;
+            position: relative;
+            margin-bottom: 6px;
+        }
+
+        .skills-list li::before,
+        .cert-list li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+            color: var(--accent-color);
+        }
+
+        /* --- COLUNA DIREITA (PRINCIPAL) --- */
+        main {
+            padding: 30px 35px 20px 35px;
+            background-color: white;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 22pt;
+            text-transform: uppercase;
+            color: #0f172a;
+            margin-bottom: 5px;
+            line-height: 1.1;
+        }
+
+        .role-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 11pt;
+            font-weight: 600;
+            color: var(--text-light);
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+
+        .name-underline {
+            width: 60px;
+            height: 5px;
+            background-color: var(--accent-color);
+        }
+
+        h2.main-section-title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 13pt;
+            text-transform: uppercase;
+            color: #0f172a;
+            margin-top: 15px;
+            margin-bottom: 8px;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 3px;
+        }
+
+        p.profile-text {
+            font-size: 9.5pt;
+            line-height: 1.5;
+            color: var(--text-dark);
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        .job-item {
+            margin-bottom: 14px;
+        }
+
+        .job-date {
+            font-size: 9pt;
+            color: var(--text-light);
+            margin-bottom: 2px;
+            font-weight: 600;
+        }
+
+        .job-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 10.5pt;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 5px;
+        }
+
+        .job-details {
+            list-style: none;
+        }
+
+        .job-details li {
+            font-size: 9.5pt;
+            line-height: 1.4;
+            color: var(--text-dark);
+            margin-bottom: 4px;
+            padding-left: 12px;
+            position: relative;
+            text-align: justify;
+        }
+
+        .job-details li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: var(--accent-color);
+        }
+
+        /* --- PRINT --- */
+        @media print {
+            @page {
+                size: A4;
+                margin: 0mm;
+            }
+
+            body {
+                background: none;
+                margin: 0;
+                padding: 0;
+            }
+
+            .page {
+                width: 100%;
+                height: 297mm;
+                box-shadow: none;
+                margin: 0;
+                page-break-after: avoid;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page">
+        <aside>
+            <div class="sidebar-top-accent"></div>
+
+            <h3 class="section-title" id="contato-title">Contato</h3>
+            <div class="contact-info">
+                <p>Cuiabá, Mato Grosso</p>
+                <p>Jardim Itália</p>
+                <p><strong>Celular:</strong> (65) 98444-4601</p>
+                <p style="font-size: 8.5pt; word-break: break-all;"><a href="mailto:heliocarrara@gmail.com"
+                        style="color: inherit; text-decoration: none;">heliocarrara@gmail.com</a></p>
+                <p style="font-size: 8.5pt;"><a href="https://linkedin.com/in/heliocarrara" target="_blank"
+                        style="color: inherit; text-decoration: none;">linkedin.com/in/heliocarrara</a></p>
+                <p style="font-size: 8.5pt;"><a href="https://github.com/heliocarrara" target="_blank"
+                        style="color: inherit; text-decoration: none;">github.com/heliocarrara</a></p>
+            </div>
+            <br>
+
+            <h3 class="section-title" id="formacao-title">Formação</h3>
+
+            <div class="education-item">
+                <span class="education-year">2024 - 2026 (Em andamento)</span>
+                <span class="education-degree">Mestrado em Ciência de Dados</span>
+                UFMT - Universidade Federal de Mato Grosso
+            </div>
+
+            <div class="education-item">
+                <span class="education-year">2018 - 2024</span>
+                <span class="education-degree">Engenharia de Computação</span>
+                UFMT - Universidade Federal de Mato Grosso
+            </div>
+
+            <br>
+
+            <h3 class="section-title" id="habilidades-title">Habilidades</h3>
+            <ul class="skills-list">
+                <li>C# & .NET Core (.NET Framework)</li>
+                <li>Entity Framework & Dapper</li>
+                <li>ASP.NET Web API & RESTful</li>
+                <li>Frontend (React / Vue.js)</li>
+                <li>MSSQL (Procedures, Views, Triggers)</li>
+                <li>Modelagem Relacional de Dados</li>
+                <li>Testes Unitários (xUnit/NUnit)</li>
+                <li>Versionamento (Git / Git Flow / PRs)</li>
+                <li>Configuração de Ambientes IIS</li>
+                <li>Integrações de Software & APIs</li>
+                <li>Metodologias Ágeis (Scrum)</li>
+                <li>Inglês Avançado</li>
+            </ul>
+
+            <br>
+
+            <h3 class="section-title" id="certificacoes-sidebar-title">Certificações</h3>
+            <ul class="cert-list">
+                <li contenteditable="true">Testes Unitários em C# com NUnit e Moq</li>
+                <li contenteditable="true">Gestão Ágil com Scrum (2024)</li>
+                <li contenteditable="true">Pilares e Fases do Design Thinking (2022)</li>
+                <li contenteditable="true">Mindset Digital e Transformação (2022)</li>
+                <li contenteditable="true">Inglês Nível Avançado (UFMT)</li>
+            </ul>
+        </aside>
+
+        <main>
+            <header>
+                <h1 contenteditable="true" id="nome-header">Helio Carrara<br>Belido Júnior</h1>
+                <div class="role-title" contenteditable="true" id="cargo-header">Desenvolvedor Full Stack | Engenheiro de Computação</div>
+                <div class="name-underline"></div>
+            </header>
+
+            <section>
+                <h2 class="main-section-title" id="resumo-title">Resumo Profissional</h2>
+                <p class="profile-text" contenteditable="true" id="resumo-content">
+                    Engenheiro de Computação (UFMT) e Mestrando em Ciência de Dados com sólida experiência prática no desenvolvimento de sistemas web de média a alta complexidade no ecossistema .NET (C#, ASP.NET Web API, Entity Framework e Dapper). Ampla vivência no desenvolvimento de APIs RESTful integradas a bases de dados MSSQL (criação de procedures, triggers e views) e na componentização e gestão de estado no frontend utilizando frameworks modernos como Vue.js e React. Perfil autônomo e de forte raciocínio lógico, experiente em testes unitários (NUnit/xUnit), deploy em servidores IIS, Git Flow e ritos ágeis (Scrum).
+                </p>
+            </section>
+
+            <section>
+                <h2 class="main-section-title" id="historico-title">Histórico Profissional</h2>
+
+                <div class="job-item">
+                    <div class="job-date" contenteditable="true">Agosto 2019 - Agosto 2024</div>
+                    <div class="job-title" contenteditable="true">Full Stack Developer, <i>UFMT</i></div>
+                    <ul class="job-details">
+                        <li contenteditable="true">Desenvolvi e mantive sistemas web acadêmicos integrados com C# (.NET Core/.NET Framework) e ASP.NET Web API, garantindo robustez e conformidade técnica.</li>
+                        <li contenteditable="true">Construí interfaces de usuário dinâmicas utilizando frameworks front-end modernos (Vue.js e React), com componentização modular e gerenciamento de estado.</li>
+                        <li contenteditable="true">Elaborei modelagens físicas e lógicas de dados relacionais e implementei consultas, views e procedures otimizadas no banco de dados MSSQL.</li>
+                        <li contenteditable="true">Escrevi testes unitários utilizando NUnit/xUnit e conduzi testes funcionais sistemáticos para garantir a qualidade de software e validação de aceites em produção.</li>
+                        <li contenteditable="true">Realizei revisão de código (code reviews) de pares e participei ativamente do deploy e gestão de configurações de ambientes de homologação em servidores IIS.</li>
+                    </ul>
+                </div>
+
+                <div class="job-item">
+                    <div class="job-date" contenteditable="true">Julho 2023 - Julho 2024</div>
+                    <div class="job-title" contenteditable="true">Coordenador de Projeto (SIEx) / Desenvolvimento, <i>UFMT</i></div>
+                    <ul class="job-details">
+                        <li contenteditable="true">Liderei o levantamento de requisitos, elaboração de diagramas técnicos de arquitetura de software, prototipação e documentação de integração de dados de novos módulos.</li>
+                        <li contenteditable="true">Codifiquei e integrei o sistema de extensão com APIs e ERPs institucionais, mantendo foco na integridade referencial dos dados e segurança de acesso.</li>
+                    </ul>
+                </div>
+
+                <div class="job-item">
+                    <div class="job-date" contenteditable="true">Junho 2025 - Fevereiro 2026</div>
+                    <div class="job-title" contenteditable="true">Estágio Docência - Banco de Dados, <i>UFMT</i></div>
+                    <ul class="job-details">
+                        <li contenteditable="true">Orientei turmas acadêmicas no aprendizado de modelagem básica de dados relacionais, criação de tabelas e elaboração de consultas em SQL Server.</li>
+                        <li contenteditable="true">Auxiliei no diagnóstico e resolução de problemas técnicos de desenvolvimento e montagem de ambientes locais de testes e qualidade de software.</li>
+                    </ul>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        document.querySelectorAll('[contenteditable="true"]').forEach(el => {
+            el.addEventListener('focus', function () { this.style.outline = '2px solid var(--accent-color)'; });
+            el.addEventListener('blur', function () { this.style.outline = 'none'; });
+        });
+    </script>
+</body>
+
+</html>
