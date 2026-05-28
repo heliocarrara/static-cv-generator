@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currículo Técnico de TI - Helio Carrara</title>
+    <style>
+        /* --- FONTES E CORES --- */
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;600;700&display=swap');
+
+        :root {
+            --sidebar-bg: #f1f5f9;
+            --accent-color: #1e40af;
+            --text-dark: #0f172a;
+            --text-light: #475569;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+
+        body {
+            background-color: #475569;
+            display: flex;
+            justify-content: center;
+            font-family: 'Open Sans', sans-serif;
+            padding: 20px;
+        }
+
+        /* --- CONFIGURAÇÃO DA PÁGINA A4 --- */
+        .page {
+            width: 210mm;
+            height: 296mm;
+            background: white;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            display: grid;
+            grid-template-columns: 32% 68%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* --- COLUNA ESQUERDA (SIDEBAR) --- */
+        aside {
+            background-color: var(--sidebar-bg);
+            padding: 25px 20px;
+            padding-top: 0;
+            color: var(--text-dark);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            border-right: 1px solid #e2e8f0;
+        }
+
+        .sidebar-top-accent {
+            background-color: var(--accent-color);
+            height: 15px;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+        }
+
+        /* Área da Foto */
+        .photo-container {
+            margin-top: 40px;
+            width: 140px;
+            height: 140px;
+            margin-bottom: 30px;
+            position: relative;
+            cursor: pointer;
+            overflow: hidden;
+            background-color: #cbd5e1;
+            align-self: flex-start;
+            border-radius: 4px;
+        }
+
+        #profile-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .photo-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            opacity: 0;
+            transition: opacity 0.2s;
+            font-size: 11px;
+            text-align: center;
+        }
+
+        .photo-container:hover .photo-overlay {
+            opacity: 1;
+        }
+
+        /* Títulos da Sidebar */
+        h3.section-title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            text-transform: uppercase;
+            font-size: 11pt;
+            margin-bottom: 12px;
+            color: var(--text-dark);
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 5px;
+            display: inline-block;
+        }
+
+        /* Textos da Sidebar */
+        .contact-info p,
+        .education-item,
+        .skills-list li,
+        .cert-list li {
+            font-size: 9pt;
+            line-height: 1.4;
+            margin-bottom: 8px;
+            color: var(--text-dark);
+        }
+
+        .education-item {
+            margin-bottom: 15px;
+        }
+
+        .education-year {
+            font-weight: 700;
+            display: block;
+            font-size: 8.5pt;
+            color: var(--text-light);
+        }
+
+        .education-degree {
+            font-weight: 700;
+            display: block;
+            margin-bottom: 2px;
+        }
+
+        .skills-list,
+        .cert-list {
+            list-style: none;
+        }
+
+        .skills-list li,
+        .cert-list li {
+            padding-left: 1em;
+            position: relative;
+            margin-bottom: 6px;
+        }
+
+        .skills-list li::before,
+        .cert-list li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+            color: var(--accent-color);
+        }
+
+        /* --- COLUNA DIREITA (PRINCIPAL) --- */
+        main {
+            padding: 40px 35px;
+            background-color: white;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            margin-bottom: 25px;
+        }
+
+        h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 22pt;
+            text-transform: uppercase;
+            color: #0f172a;
+            margin-bottom: 5px;
+            line-height: 1.1;
+        }
+
+        .role-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 11pt;
+            font-weight: 600;
+            color: var(--text-light);
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+
+        .name-underline {
+            width: 60px;
+            height: 5px;
+            background-color: var(--accent-color);
+        }
+
+        h2.main-section-title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 13pt;
+            text-transform: uppercase;
+            color: #0f172a;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 3px;
+        }
+
+        p.profile-text {
+            font-size: 9.5pt;
+            line-height: 1.5;
+            color: var(--text-dark);
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        .job-item {
+            margin-bottom: 18px;
+        }
+
+        .job-date {
+            font-size: 9pt;
+            color: var(--text-light);
+            margin-bottom: 2px;
+            font-weight: 600;
+        }
+
+        .job-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 10.5pt;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 5px;
+        }
+
+        .job-details {
+            list-style: none;
+        }
+
+        .job-details li {
+            font-size: 9.5pt;
+            line-height: 1.4;
+            color: var(--text-dark);
+            margin-bottom: 4px;
+            padding-left: 12px;
+            position: relative;
+            text-align: justify;
+        }
+
+        .job-details li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: var(--accent-color);
+        }
+
+        /* --- EDITOR MODAL --- */
+        #image-editor-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .editor-content {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 400px;
+        }
+
+        canvas {
+            border: 1px solid #ccc;
+            cursor: move;
+            margin-bottom: 15px;
+        }
+
+        .controls {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        button {
+            padding: 8px 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 4px;
+            font-weight: bold;
+            margin: 0 5px;
+        }
+
+        .btn-save {
+            background: var(--accent-color);
+            color: white;
+        }
+
+        .btn-cancel {
+            background: #ccc;
+            color: #333;
+        }
+
+        /* --- PRINT --- */
+        @media print {
+            @page {
+                size: A4;
+                margin: 0mm;
+            }
+
+            body {
+                background: none;
+                margin: 0;
+                padding: 0;
+            }
+
+            .page {
+                width: 100%;
+                height: 297mm;
+                box-shadow: none;
+                margin: 0;
+                page-break-after: avoid;
+            }
+
+            #image-input,
+            .photo-overlay,
+            #image-editor-modal,
+            .zoom-control {
+                display: none !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <input type="file" id="image-input" accept="image/*" style="display: none;">
+
+    <div id="image-editor-modal">
+        <div class="editor-content">
+            <h3>Ajustar Foto</h3>
+            <canvas id="editor-canvas" width="300" height="300"></canvas>
+            <div style="width:100%; margin-top:10px;">
+                <label>Zoom:</label>
+                <input type="range" id="zoom-slider" min="1" max="3" step="0.1" value="1" style="width: 100%;">
+            </div>
+            <div class="controls">
+                <button class="btn-cancel" onclick="closeEditor()">Cancelar</button>
+                <button class="btn-save" onclick="saveImage()">Salvar</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="page">
+        <aside>
+            <div class="sidebar-top-accent"></div>
+
+            <div class="photo-container" onclick="document.getElementById('image-input').click()">
+                <img src="https://via.placeholder.com/150x150?text=Foto" id="profile-img" alt="Foto">
+                <div class="photo-overlay">Carregar Foto</div>
+            </div>
+
+            <h3 class="section-title">Contato</h3>
+            <div class="contact-info">
+                <p>Cuiabá, Mato Grosso</p>
+                <p>Jardim Itália</p>
+                <p><strong>Celular:</strong> (65) 98444-4601</p>
+                <p style="font-size: 8.5pt; word-break: break-all;"><a href="mailto:heliocarrara@gmail.com"
+                        style="color: inherit; text-decoration: none;">heliocarrara@gmail.com</a></p>
+                <p style="font-size: 8.5pt;"><a href="https://linkedin.com/in/heliocarrara" target="_blank"
+                        style="color: inherit; text-decoration: none;">linkedin.com/in/heliocarrara</a></p>
+                <p style="font-size: 8.5pt;"><a href="https://github.com/heliocarrara" target="_blank"
+                        style="color: inherit; text-decoration: none;">github.com/heliocarrara</a></p>
+            </div>
+            <br>
+
+            <h3 class="section-title">Formação</h3>
+
+            <div class="education-item">
+                <span class="education-year">2024 - 2026 (Em andamento)</span>
+                <span class="education-degree">Mestrado em Ciência de Dados</span>
+                UFMT - Universidade Federal de Mato Grosso
+            </div>
+
+            <div class="education-item">
+                <span class="education-year">2018 - 2024</span>
+                <span class="education-degree">Engenharia de Computação</span>
+                UFMT - Universidade Federal de Mato Grosso
+            </div>
+
+            <br>
+
+            <h3 class="section-title">Habilidades</h3>
+            <ul class="skills-list">
+                <li>Suporte Técnico & Helpdesk</li>
+                <li>Instalação e Configuração</li>
+                <li>Montagem e Manutenção</li>
+                <li>Windows & Pacote Office</li>
+                <li>Redes (IP, Wi-Fi, Roteadores)</li>
+                <li>Impressoras & Periféricos</li>
+                <li>Registro e Gestão de Chamados</li>
+                <li>Resolução de Problemas (Troubleshooting)</li>
+                <li>Bancos de Dados & SQL</li>
+                <li>Comunicação e Didática</li>
+                <li>Git & Versionamento</li>
+                <li>Inglês Avançado</li>
+            </ul>
+        </aside>
+
+        <main>
+            <header>
+                <h1 contenteditable="true">Helio Carrara<br>Belido Júnior</h1>
+                <div class="role-title" contenteditable="true">Técnico de TI | Engenheiro de Computação</div>
+                <div class="name-underline"></div>
+            </header>
+
+            <section>
+                <h2 class="main-section-title">Resumo Profissional</h2>
+                <p class="profile-text" contenteditable="true">
+                    Engenheiro de Computação graduado pela UFMT e Mestrando em Ciência de Dados, com sólida base técnica
+                    em hardware, redes, sistemas operacionais Windows/Linux e ferramentas do pacote Office. Vivência no
+                    suporte técnico a usuários, montagem de computadores, instalação de periféricos/impressoras e
+                    gerenciamento de chamados técnicos (tickets). Perfil analítico, proativo e com excelente didática
+                    para orientação aos colaboradores, buscando otimizar o funcionamento da infraestrutura tecnológica e
+                    garantir a continuidade das operações.
+                </p>
+            </section>
+
+            <section>
+                <h2 class="main-section-title">Histórico Profissional</h2>
+
+                <div class="job-item">
+                    <div class="job-date" contenteditable="true">Junho 2025 - Fevereiro 2026</div>
+                    <div class="job-title" contenteditable="true">Estágio Docência / Suporte em Laboratório, <i>UFMT</i>
+                    </div>
+                    <ul class="job-details">
+                        <li contenteditable="true">Prestei suporte aos usuários do laboratório de informática (alunos e
+                            professores), auxiliando na resolução de problemas em tempo real.</li>
+                        <li contenteditable="true">Auxiliei na instalação de softwares, manutenção básica de hardware e
+                            configuração rápida de Wi-Fi e IPs de rede das máquinas do laboratório.</li>
+                        <li contenteditable="true">Orientei usuários no manuseio de ferramentas para as aulas, como
+                            Word, Excel e plataformas de banco de dados.</li>
+                    </ul>
+                </div>
+
+                <div class="job-item">
+                    <div class="job-date" contenteditable="true">Agosto 2019 - Agosto 2024</div>
+                    <div class="job-title" contenteditable="true">Full Stack Developer & Suporte de TI, <i>UFMT</i>
+                    </div>
+                    <ul class="job-details">
+                        <li contenteditable="true">Realizei a instalação, configuração e manutenção de computadores,
+                            impressoras e periféricos de laboratório, solucionando falhas operacionais e de hardware.
+                        </li>
+                        <li contenteditable="true">Executei configurações básicas de rede local, contemplando
+                            endereçamento IP (estático/DHCP), cabeamento e redes Wi-Fi para laboratório acadêmico.</li>
+                        <li contenteditable="true">Registrei, acompanhei e solucionei chamados de TI (infraestrutura e
+                            sistemas) utilizando sistemas internos de controle de tarefas e tickets.</li>
+                    </ul>
+                </div>
+
+                <div class="job-item">
+                    <div class="job-date" contenteditable="true">Julho 2023 - Julho 2024</div>
+                    <div class="job-title" contenteditable="true">Coordenador de Projeto (SIEx) / Atendimento,
+                        <i>UFMT</i>
+                    </div>
+                    <ul class="job-details">
+                        <li contenteditable="true">Atuei no suporte técnico de segundo nível para usuários do sistema
+                            acadêmico, mapeando erros técnicos e orientando na solução das falhas de sistema.</li>
+                        <li contenteditable="true">Fui responsável pelo registro e acompanhamento de bugs e
+                            solicitações, atuando de forma integrada à infraestrutura de servidores da universidade.
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <section>
+                <h2 class="main-section-title">Certificações e Extensão</h2>
+                <ul class="job-details" style="list-style: none; padding-left: 0;">
+                    <li style="padding-left: 0;">• Gestão Ágil com Scrum (2024)</li>
+                    <li style="padding-left: 0;">• Pilares e Fases do Design Thinking (2022)</li>
+                    <li style="padding-left: 0;">• Mindset Digital e Transformação (2022)</li>
+                    <li style="padding-left: 0;">• Inglês Nível Avançado (UFMT)</li>
+                </ul>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        let uploadedImage = new Image();
+        let canvas = document.getElementById('editor-canvas');
+        let ctx = canvas.getContext('2d');
+        let zoomSlider = document.getElementById('zoom-slider');
+        let state = { scale: 1, panning: false, pointX: 0, pointY: 0, startX: 0, startY: 0 };
+
+        document.getElementById('image-input').addEventListener('change', function (e) {
+            if (e.target.files && e.target.files[0]) {
+                let reader = new FileReader();
+                reader.onload = function (event) {
+                    uploadedImage.onload = () => {
+                        state = { scale: 1, panning: false, pointX: 0, pointY: 0, startX: 0, startY: 0 };
+                        zoomSlider.value = 1;
+                        document.getElementById('image-editor-modal').style.display = 'flex';
+                        drawImage();
+                    }
+                    uploadedImage.src = event.target.result;
+                }
+                reader.readAsDataURL(e.target.files[0]);
+            }
+        });
+
+        function drawImage() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.save();
+            ctx.translate(canvas.width / 2 + state.pointX, canvas.height / 2 + state.pointY);
+            ctx.scale(state.scale, state.scale);
+            let ratio = Math.max(canvas.width / uploadedImage.width, canvas.height / uploadedImage.height);
+            let newWidth = uploadedImage.width * ratio;
+            let newHeight = uploadedImage.height * ratio;
+            ctx.drawImage(uploadedImage, -newWidth / 2, -newHeight / 2, newWidth, newHeight);
+            ctx.restore();
+        }
+
+        canvas.addEventListener('mousedown', function (e) { state.panning = true; state.startX = e.clientX - state.pointX; state.startY = e.clientY - state.pointY; });
+        window.addEventListener('mouseup', function () { state.panning = false; });
+        window.addEventListener('mousemove', function (e) { if (!state.panning) return; e.preventDefault(); state.pointX = e.clientX - state.startX; state.pointY = e.clientY - state.startY; drawImage(); });
+        zoomSlider.addEventListener('input', function (e) { state.scale = parseFloat(this.value); drawImage(); });
+
+        function saveImage() {
+            document.getElementById('profile-img').src = canvas.toDataURL('image/png');
+            closeEditor();
+        }
+        function closeEditor() {
+            document.getElementById('image-editor-modal').style.display = 'none';
+            document.getElementById('image-input').value = '';
+        }
+        document.querySelectorAll('[contenteditable="true"]').forEach(el => {
+            el.addEventListener('focus', function () { this.style.outline = '2px solid #1e40af'; });
+            el.addEventListener('blur', function () { this.style.outline = 'none'; });
+        });
+    </script>
+</body>
+
+</html>
